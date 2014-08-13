@@ -1,10 +1,18 @@
+$(document).ready(function(){
+
+  $('#submitBtn').on('click',function(){
+    check();
+    return false;
+  });
+});
+
 var url = location.href;
 function operate(){
   var score = getTotalScore();
   var result = document.getElementById("score");
   result.innerHTML = score;
   $('#totalScore')[0].classList.add('text-danger');
-  location.href = url + url.indexOf('#') === -1 ? '#top' : '';
+  location.href = url + '#top';
   return false;
 }
 
@@ -24,15 +32,19 @@ function check(){
     var element = $('#'+checker[i])[0];
     var isOk = element.value === "";
     if(isOk){
-      $('#'+checker[i] + '_text').addClass('has-error');
-      $('#myModal').modal({
-        keyboard: false
-      });
-      location.href = url + '#top';
-      return false;
+      return showError(checker[i]);
     }
   }
   operate();
+  return false;
+}
+
+function showError(check){
+  $('#'+check + '_text').addClass('has-error');
+  $('#myModal').modal({
+    keyboard: false
+  });
+  location.href = url + '#top';
   return false;
 }
 

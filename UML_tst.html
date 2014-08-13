@@ -22,7 +22,7 @@
 </head>
 
 <body>
-<form role="form" action="#" method="post" onSubmit="return check();">
+<form role="form" action="#" method="post" autocomplete="off">
 <a name="top"></a>
 
 <div class="container">
@@ -32,9 +32,11 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-4">考试科目:统一建模语言 UML</div>
-                <div class="col-md-4">时间:100分钟</div>
-                <div id='totalScore' class="col-md-4">得分:<span id="score"></span></div>
+							<div class='form-group'>
+								<div class="col-md-4">考试科目:统一建模语言 UML</div>
+								<div class="col-md-4">时间:100分钟</div>
+								<div id='totalScore' class="col-md-4">得分:<span id="score"></span></div>
+							</div>
             </div>
         </div>
     </div>
@@ -42,7 +44,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-4">
-                    <div id="cls_text">
+                    <div id="cls_text" class="form-group">
                         <label>班级:</label>
                         <input class="form-control" type="text" id='cls' name="cls" onfocus="change(this)">
                     </div>
@@ -253,7 +255,7 @@
 </section>
 
 <footer>
-    <div class="text-center"><input class='btn btn-primary' type="submit" value="提交答案"/></div>
+    <div class="text-center"><button class='btn btn-primary' id="submitBtn" >提交答案</button></div>
 </footer>
 
 <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
